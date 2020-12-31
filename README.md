@@ -54,3 +54,4 @@ Press *F8* to exit the game.
 ## Credits :bookmark_tabs:
 * Inital insperation for this was based off a small tutorial from [Miziziziz](https://www.youtube.com/watch?v=5vYI_mgERBU).
 * Shooting was based off a tutorial by [Code with Tom](https://www.youtube.com/watch?v=cei9BZMzVLY&list=PLa6IX6n0yPfeSVVIIO48OF3XnRBc68X-K&index=8&t=120s).
+* State machine implemented on the player was inspired by this project [nezvers](https://github.com/nezvers/Godot_2D_action_platformer).

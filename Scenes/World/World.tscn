@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/World/Camera.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Characters/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Characters/Enemy/Zombie.tscn" type="PackedScene" id=5]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 849.935, 460.585, 967.164, 541.738, -76.049, 536.131, 263.93, 450.318, 968.651, -96.3007, 847.776, 324.601, -1038.73, -605.7, -28.5626, -592.749, -166.705, -297.038, -576.814, -348.842, -760.284, 497.279, -518.535, -50.9728, -572.497, 503.754, 55.6178, -104.935, 174.267, -12.0592, -112.743, 108.754, 40.6526, 209.46, -363.125, 499.437, -337.224, 106.595, 81.5194, -46.6559, 344.802, 325.493, 337.769, 133.862, 180.809, 132.497, 228.768, 223.524 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 1, 0, 5 ), PoolIntArray( 6, 7, 8, 9 ), PoolIntArray( 10, 6, 9, 11, 12 ), PoolIntArray( 13, 4, 5, 14 ), PoolIntArray( 3, 2, 15, 16 ), PoolIntArray( 17, 12, 11, 18 ), PoolIntArray( 15, 18, 11, 13, 19 ), PoolIntArray( 5, 20, 21 ), PoolIntArray( 21, 22, 14 ), PoolIntArray( 16, 23, 3 ), PoolIntArray( 19, 16, 15 ), PoolIntArray( 14, 19, 13 ), PoolIntArray( 14, 5, 21 ) ]
+outlines = [ PoolVector2Array( -518.535, -50.9728, -576.814, -348.842, -166.705, -297.038, -28.5626, -592.749, -1038.73, -605.7, -760.284, 497.279, -572.497, 503.754, -363.125, 499.437, -337.224, 106.595, -112.743, 108.754, -76.049, 536.131, 967.164, 541.738, 968.651, -96.3007, 55.6178, -104.935 ), PoolVector2Array( 847.776, 324.601, 344.802, 325.493, 337.769, 133.862, 180.809, 132.497, 174.267, -12.0592, 81.5194, -46.6559, 40.6526, 209.46, 228.768, 223.524, 263.93, 450.318, 849.935, 460.585 ) ]
+
+[node name="World" type="Node"]
+
+[node name="environment" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="environment"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="environment/StaticBody2D"]
+polygon = PoolVector2Array( -261.708, -117.084, -493.9, -108.841, -547.374, -309.579, -148.057, -262.093, 15.9867, -613.924, -1067.57, -631.191, -1108.58, -784.443, 950.604, -711.055, 1228.53, -565.128, 1195.72, 694.692, -349.643, 705.24, -923.435, 713.536, -1074.04, 353.071, -1108.58, -784.443, -799.915, 543.016, -325.052, 536.541, -312.101, 150.175, -132.948, 152.333, -101.752, 555.803, 986.503, 555.803, 986.503, -135.125 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="environment"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="environment/StaticBody2D2"]
+polygon = PoolVector2Array( 154.928, 5.52167, 158.444, 149.685, 323.705, 146.169, 328.979, 343.074, 821.243, 339.558, 817.727, 448.56, 277.994, 436.253, 246.349, 211.218, 56.4754, 200.669, 91.6371, -29.6401 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 1 )
+
+[node name="Zombie" parent="Navigation2D" instance=ExtResource( 5 )]
+position = Vector2( 629.219, 220.991 )
+rotation = 1.5778
+
+[node name="Zombie2" parent="Navigation2D" instance=ExtResource( 5 )]
+position = Vector2( 477.349, 246.3 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="CameraFollow" parent="Player" index="5"]
+remote_path = NodePath("../../Camera")
+
+[node name="Camera" parent="." instance=ExtResource( 1 )]
+current = true
+
+[node name="UI" parent="." instance=ExtResource( 4 )]
+
+[editable path="Player"]

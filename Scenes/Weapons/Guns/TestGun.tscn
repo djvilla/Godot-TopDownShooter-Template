@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Weapons/Guns/Gun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Weapon/Guns/testGun.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[node name="TestGun" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+modulate = Color( 0.490196, 0, 0, 1 )
+position = Vector2( 16, 0 )
+scale = Vector2( 0.484, 0.062 )
+texture = ExtResource( 3 )
+
+[node name="Muzzle" parent="Sprite" index="0"]
+position = Vector2( 33.0578, 0 )

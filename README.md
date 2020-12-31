@@ -1,6 +1,6 @@
 # Godot Top Down Shooter Templete :gun:
 
-A top down shooter templete made in Godot. This is the templete that I will eventually use to create a top down shooter game. For now I am building the back bone.
+A top down shooter templete made in Godot. This is the templete that I will eventually use to create a top down shooter game. For now I am building the backbone.
 As you can see alot of what you need to create one is already in here. However, I would like to refactor the code to 
 follow the [GDScript Style Guide](https://docs.godotengine.org/en/stable/getting_started/scripting/gdscript/gdscript_styleguide.html). In addition, I need to create
 some new assets and get rid of the default Godot icon assets that are currently being used.
@@ -17,7 +17,7 @@ the monsters will be alerted.
 
 
 ## How to Run :running:
-This project currently runs on Godot 3.2.3.stable.
+This project currently runs on [Godot 3.2.3.stable](https://godotengine.org/download).
 
 1. Open up the project in Godot
 2. Under the *FileSystem*, open up *res://Scenes/World/World.tscn*.
